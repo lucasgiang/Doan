@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Doan.Models.LIENHE>
+
+@{
+    ViewBag.Title = "ListLienhe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ListLienhe</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Họ tên
+        </th>
+        <th>
+            Công ty/Địa chỉ
+        </th>
+        <th>
+            Điện thoại
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Nội dung
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HOTEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CONGTY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DIENTHOAI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMAIL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOIDUNG)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteLienHe", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

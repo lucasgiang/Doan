@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <!-- Fontawesome core CSS -->
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <!--GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!--Slide Show Css -->
+    <link href="~/Content/main-style.css" rel="stylesheet" />
+    <!-- custom CSS here -->
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/demo.css" rel="stylesheet" />
+
+    @*
+        <link id="callCss" rel="stylesheet" href="~/Content/bootstrap.min.css" media="screen" />*@
+
+    @*
+        <link href="~/Content/base.css" rel="stylesheet" />*@
+
+    @*
+        <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />*@
+    @*
+        <link href="~/Content/font-awesome.css" rel="stylesheet" />*@
+    @*
+        <link href="~/Content/prettify.css" rel="stylesheet" />*@
+    @*
+        <style type="text/css" id="enject"></style>*@
+
+    @using Doan.Models;
+
+</head>
+<body>
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index","DT")"><strong>ALT</strong> Shop</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="@Url.Action("Index","DT")" class="style-trangchu">TRANG CHỦ</a></li>
+                    <li><a href="@Url.Action("Gioithieu","DT")" class="style-trangchu">GIỚI THIỆU</a></li>
+                    <li><a href="@Url.Action("Lienhe","DT")" class="style-trangchu">LIÊN HỆ</a></li>
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-6 col-xs-12">
+
+                @{
+                KHACHHANG kh = (KHACHHANG)Session["TAIKHOAN"];
+                }
+                @if (Session["TAIKHOAN"] != null)
+                {
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"> Chào @kh.HOTEN</a></li>
+                    <li><a href="@Url.Action("DangXuat","DT")"><strong>Đăng Xuất</strong></a></li>
+                </ul>
+
+                }
+                else
+                {
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li><a href="@Url.Action("Dangnhap","Nguoidung")"><strong>Đăng Nhập</strong></a></li>
+                    <li><a href="@Url.Action("DangNhap", "NguoiDung" )"></a></li>
+                </ul>
+                }
+
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li><a href="@Url.Action("Dangky","Nguoidung")"><strong>Đăng Ký</strong></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        @Html.Action("GiohangPartial", "Giohang")
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-6 col-xs-12">
+                <div id="carouselBlk">
+                    <div id="myCarousel" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="container">
+                                    <a href="register.html"><img style="width:100%" img src="~/Images/banner.jpg" alt="special offers" /></a>
+                                    @*<img src="~/Images/cover1.jpg" />*@
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="container">
+                                    <a href="register.html"><img style="width:100%;height:515px;" img src="~/Images/spiphone2.jpg" alt="" /></a>
+                                    @*<img src="~/Images/cover2.jpg" />*@
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="container">
+                                    <a href="register.html"><img style="width:100%;height:515px;" img src="~/Images/spsamsung.jpg" alt="" /></a>
+                                    @*<img src="~/Images/cover3.jpg" />*@
+                                    <div class="carousel-caption">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="container">
+                                    <a href="register.html"><img style="width:100%;height:515px;" img src="~/Images/spiphone1.jpg" alt="" /></a>
+                                    @*<img src="~/Images/cover4.jpg" />*@
+                                    <div class="carousel-caption">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="container">
+                                    <a href="register.html"><img style="width:100%;height:515px;" img src="~/Images/banneriphone.jpg" alt="" /></a>
+                                    @*<img src="~/Images/cover5.jpg" />*@
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="container">
+                                    <a href="register.html"><img style="width:100%;height:515px;" img src="~/Images/bannersamsung.jpg" alt="" /></a>
+                                    @*<img src="~/Images/cover6.jpg" />*@
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div>
+                    <a href="#" class="list-group-item active">
+                        DANH SÁCH SẢN PHẨM
+                    </a>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            @Html.Action("Loaisp", "DT")
+                        </li>
+                    </ul>
+                </div>
+                <div class="fb-page" data-href="https://www.facebook.com/ALTShop/" data-tabs="timeline" data-width="450" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/ALTShop/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ALTShop/">ALT Shop</a></blockquote></div>
+            </div>
+            <div class="col-md-9">
+                <div>
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+    @*<div class="col-md-12 download-app-box text-center">
+
+        <span class="glyphicon glyphicon-download-alt"></span>Download Our Android App and Get 10% additional Off on all Products . <a href="#" class="btn btn-danger btn-lg">DOWNLOAD  NOW</a>
+
+    </div>*@
+
+    <!--Footer -->
+    <!-- /.col -->
+    <div class="col-md-12 end-box ">
+        &copy; 2022 | &nbsp; ALT Shop | &nbsp; www.ALT.shop.com | &nbsp; Hỗ Trợ 24/7 
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+
+
+    <script src="~/Scripts/bootstrap.js"></script>
+
+
+    <script src="~/Scripts/modernizr.custom.63321.js"></script>
+
+    <script src="~/Scripts/jquery.catslider.js"></script>
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/prettify.js"></script>
+    <script src="~/Scripts/bootshop.js"></script>
+    <script src="~/Scripts/jquery.lightbox-0.5.js"></script>
+    <script>
+        $(function () {
+
+            $('#mi-slider').catslider();
+
+        });
+    </script>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    @*Bình luận*@
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    @*Like share*@
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+</body>
+</html>

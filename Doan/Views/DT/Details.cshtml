@@ -1,0 +1,68 @@
+﻿<style type="text/css">
+    #Datmua a {
+        clear: both;
+        background-color: red;
+        color: white;
+        width: 120px;
+        height: 35px;
+        display: block;
+        float: right;
+        text-align: center;
+        padding-top: 10px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        #Datmua a:hover {
+            background-color: gray;
+            color: red;
+        }
+</style>
+
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>THÔNG TIN CHI TIẾT SẢN PHẨM</h2>
+<div class="row">
+    <div style="width:40%; float:left; border-left:dotted 1px; border-color:azure">
+        <img style="width:130%" src="~/images/@Model.ANHBIA" />
+    </div>
+    <div style="width:60%; float:left;padding:170px">
+        <h4 style="font-weight:bold; color:red; text-align:left">Tên sản phẩm: @Model.TENSP</h4>
+        <p style="font-weight:bold">Giá bán: <span style="color:red; font-size:16pt">@Model.GIABAN VNĐ</span></p>
+        <div class="fb-like" data-href="http://localhost:61992/DT/Details/@Model.MASP" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    </div>
+    <div id="Datmua">
+        <a href="@Url.Action("ThemGiohang", "GioHang", new { @iMasp=@Model.MASP, @strURL=Request.Url.ToString() })">
+            ĐẶT MUA
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <table>
+            <tr>
+                <td style="text-align:justify"><span style="font-weight:bold">Mô tả:</span>@Model.MOTA</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-3"></div>
+
+</div>
+<div class="fb-comments" data-href="http://localhost:61992/DT/Details/@Model.MASP" data-numposts="5"></div>
+
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+

@@ -1,0 +1,97 @@
+﻿@*@model IEnumerable<Doan.Models.SANPHAM>*@
+@using Doan.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Doan.Models.SANPHAM>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "Sanpham";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>QUẢN LÝ THÔNG TIN SẢN PHẨM</h2>
+
+<p>
+    @Html.ActionLink("THÊM MỚI", "Themmoisp")
+</p>
+<table class="table">
+    <tr>
+        <th style="width:200px">
+            Tên sản phẩm
+        </th>
+        <th style="width:200px">
+            Giá bán
+        </th>
+        <th style="width:200px">
+            Mô tả
+        </th>
+        <th style="width:200px">
+            Ảnh bìa
+        </th>
+        <th style="width:200px">
+            Ngày cập nhật
+        </th>
+        <th style="width:200px">
+            Số lượng tồn
+        </th>
+        <th style="width:200px">
+            Loại sản phẩm
+        </th>
+        <th style="width:200px"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TENSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GIABAN)
+            </td>
+            <td>
+                @Truncate(item.MOTA,100)
+            </td>
+            <td>
+                <div class="thumbnail product-box">
+                    <img style="width:500;height:100px" src="@Url.Content("~/images/"+item.ANHBIA)" />
+                </div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NGAYCAPNHAT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SOLUONGTON)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LOAISP.TENLOAISP)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Suasp", new { id = item.MASP }) |
+                @Html.ActionLink("Chi tiết", "Chitietsp", new { id = item.MASP }) |
+                @Html.ActionLink("Xóa", "Xoasp", new { id = item.MASP })
+            </td>
+        </tr>
+    }
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+
+    @Html.PagedListPager(Model, page => Url.Action("Sanpham", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

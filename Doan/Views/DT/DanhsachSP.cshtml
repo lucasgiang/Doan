@@ -1,0 +1,49 @@
+﻿@using Doan.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<SANPHAM>
+@{
+    ViewBag.Title = "DanhsachSP";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h3 style="text-align: center; color:red"> DANH SÁCH SẢN PHẨM </h3>
+<div class="row">
+    @foreach (var SANPHAM in Model)
+    {
+        <div class="col-md-4 text-center col-sm-6 col-xs-12">
+            <div class="thumbnail product-box">
+                <a href="@Url.Action("Details", "DT", new {id=SANPHAM.MASP})">
+
+                    <img style="width:300;height:230px" alt="@SANPHAM.TENSP" src="~/images/@SANPHAM.ANHBIA"/>
+                </a>
+                <div class="caption">
+                    <h4 style="text-align:center">
+                        @SANPHAM.TENSP
+                    </h4>
+                    <h5 style="text-align:right; color:red">
+                        Giá: @SANPHAM.GIABAN
+                    </h5>
+                    <p><a href="@Url.Action("ThemGiohang", "GioHang", new { @iMasp = SANPHAM.MASP, @strURL = Request.Url.ToString() })" class="btn btn-success" role="button">Thêm giỏ hàng</a> <a href="@Url.Action("Details", "DT", new {id=SANPHAM.MASP})" class="btn btn-primary" role="button">Xem chi tiết</a></p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <h4>
+        @*<a href="#">Like this template?</a>*@
+    </h4>
+    <p>@*If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!*@</p>
+    <a @*class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/"*@>@*View Tutorial*@</a>
+</div>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+
+    @Html.PagedListPager(Model, page => Url.Action("DanhsachSP", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+

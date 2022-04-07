@@ -1,0 +1,66 @@
+﻿@model Doan.Models.LIENHE
+
+@{
+    ViewBag.Title = "DeleteLienHe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa liên hệ</h2>
+
+<h3>Bạn muốn xóa?</h3>
+<div>
+    <h4>LIENHE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HOTEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOTEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CONGTY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONGTY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIENTHOAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIENTHOAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOIDUNG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOIDUNG)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

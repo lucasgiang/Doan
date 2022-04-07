@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Doan.Models.KHACHHANG>
+
+@{
+    ViewBag.Title = "TTKhachhang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>TTKhachhang</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Họ tên
+        </th>
+        <th>
+            Ngày sinh
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Tài khoản
+        </th>
+        <th>
+            Mật khẩu
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HOTEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NGAYSINH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DIACHI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MAIL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TAIKHOAN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MATKHAU)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MAKH }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MAKH }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MAKH })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,73 @@
+﻿@model Doan.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Chitietsp";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>THÔNG TIN CHI TIẾT SẢN PHẨM</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENSP)
+        </dd>
+
+        <dt>
+            Giá bán:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIABAN)
+        </dd>
+
+        <dt>
+            Mô tả:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOTA)
+        </dd>
+
+        <dt>
+            Ngày cập nhật:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYCAPNHAT)
+        </dd>
+
+        <dt>
+            Số lượng tồn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOLUONGTON)
+        </dd>
+        <dt>
+            Loại sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAISP.TENLOAISP)
+        </dd>
+
+        <dt>
+            Hình ảnh:
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/images/"+Model.ANHBIA)" width="120" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Suasp", new { id = Model.MASP }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,65 @@
+﻿@model Doan.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "EditQLDonhang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>EditQLDonhang</h2>
+
+@using (Html.BeginForm("EditQLDonhang", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>DONDATHANG</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.MADONDATHANG)
+        <div class="form-group">
+            @Html.LabelFor(model => model.MAKH, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MAKH)
+                @Html.ValidationMessageFor(model => model.MAKH)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.NGAYDAT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NGAYDAT)
+                @Html.ValidationMessageFor(model => model.NGAYDAT)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.NGAYGIAO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NGAYGIAO)
+                @Html.ValidationMessageFor(model => model.NGAYGIAO)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TINHTRANGGIAOHANG, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TINHTRANGGIAOHANG)
+                @Html.ValidationMessageFor(model => model.TINHTRANGGIAOHANG)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DATHANHTOAN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DATHANHTOAN)
+                @Html.ValidationMessageFor(model => model.DATHANHTOAN)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
